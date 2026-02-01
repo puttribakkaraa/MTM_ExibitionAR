@@ -1,47 +1,42 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AR Exhibition - MTM Engineering</title>
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mind-ar-image-aframe.prod.js"></script>
+    
+    <style>
+      body { margin: 0; overflow: hidden; }
+      #scanning-overlay { 
+        display: flex; align-items: center; justify-content: center; 
+        position: absolute; left: 0; right: 0; top: 0; bottom: 0; 
+        background: rgba(0,0,0,0.5); color: white; z-index: 2; 
+        font-family: sans-serif;
+      }
+      .hidden { display: none; }
+    </style>
+  </head>
+  <body>
+    <div id="scanning-overlay">Arahkan kamera ke poster mesin...</div>
 
-    <header>
-        <h1>Engineering Expo AR</h1>
-        <p>Arahkan kamera ke lantai datar setelah menekan tombol AR</p>
-    </header>
-<div class="container">
-        <div class="card">
-            <model-viewer
-                src="./assets/lower_die_finisher.glb"
-                ar ar-modes="scene-viewer webxr quick-look"
-                camera-controls 
-                poster="./assets/poster1.png"
-                shadow-intensity="1">
-                <button slot="ar-button" class="ar-btn">LIHAT AR (LOWER DIE)</button>
-            </model-viewer>
-            <h3>Lower Die Finisher</h3>
-        </div>
+    <a-scene mindar-image="imageTargetSrc: ./assets/targets.mind;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+      
+      <a-assets>
+        <a-asset-item id="v8Model" src="./assets/v8_engine.glb"></a-asset-item>
+      </a-assets>
 
-        <div class="card">
-            <model-viewer
-                src="./assets/v8_engine.glb" 
-                ar ar-modes="scene-viewer webxr quick-look"
-                camera-controls
-                touch-action="pan-y"
-                shadow-intensity="1">
-                <button slot="ar-button" class="ar-btn" id="v8-btn">
-                    🚀 LIHAT DI RUANGAN ANDA
-                </button>
-            </model-viewer>
-            <h3>V8 Engine Internals</h3>
-        </div>
-    </div>
-    <footer>
-        <p>&copy; 2026 MTM Exhibition AR</p>
-    </footer>
-</body>
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+      <a-entity mindar-image-target="targetIndex: 0">
+        <a-gltf-model rotation="0 0 0" position="0 0 0" scale="0.1 0.1 0.1" src="#v8Model"></a-gltf-model>
+      </a-entity>
+    </a-scene>
+
+    <script>
+      const sceneEl = document.querySelector('a-scene');
+      const overlay = document.querySelector('#scanning-overlay');
+      sceneEl.addEventListener("targetFound", () => { overlay.classList.add("hidden"); });
+      sceneEl.addEventListener("targetLost", () => { overlay.classList.remove("hidden"); });
+    </script>
+  </body>
 </html>
