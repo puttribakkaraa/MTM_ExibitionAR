@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AR Exhibition - MTM Engineering</title>
-    
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -14,50 +13,35 @@
         <h1>Engineering Expo AR</h1>
         <p>Arahkan kamera ke lantai datar setelah menekan tombol AR</p>
     </header>
-
-    <div class="container">
-        
+<div class="container">
         <div class="card">
             <model-viewer
-                src="assets/lower_die_finisher.glb"
-                ar 
-                ar-modes="scene-viewer webxr quick-look"
+                src="./assets/lower_die_finisher.glb"
+                ar ar-modes="scene-viewer webxr quick-look"
                 camera-controls 
-                poster="assets/poster1.png"
-                shadow-intensity="1" 
-                auto-rotate
-                alt="Model 3D Lower Die Finisher">
-                
-                <button slot="ar-button" class="ar-btn">
-                    LIHAT AR (LOWER DIE)
-                </button>
+                poster="./assets/poster1.png"
+                shadow-intensity="1">
+                <button slot="ar-button" class="ar-btn">LIHAT AR (LOWER DIE)</button>
             </model-viewer>
             <h3>Lower Die Finisher</h3>
         </div>
 
         <div class="card">
             <model-viewer
-                src="./assets/v8_engine.glb"
-                ar 
-                ar-modes="scene-viewer webxr quick-look"
+                src="./assets/v8_engine.glb" 
+                ar ar-modes="scene-viewer webxr quick-look"
                 camera-controls
                 touch-action="pan-y"
-                shadow-intensity="1"
-                auto-rotate
-                alt="Model 3D V8 Engine Internals">
-
+                shadow-intensity="1">
                 <button slot="ar-button" class="ar-btn" id="v8-btn">
                     🚀 LIHAT DI RUANGAN ANDA
                 </button>
             </model-viewer>
             <h3>V8 Engine Internals</h3>
         </div>
-
     </div>
-
     <footer>
         <p>&copy; 2026 MTM Exhibition AR</p>
     </footer>
-
 </body>
 </html>
