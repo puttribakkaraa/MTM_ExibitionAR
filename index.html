@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR Exhibition - Engineering</title>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Engineering Expo AR</h1>
+        <p>Arahkan kamera ke lantai setelah menekan tombol AR</p>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <model-viewer 
+                src="assets/lower_die_finisher.glb" 
+                ar ar-modes="webxr scene-viewer quick-look" 
+                camera-controls poster="assets/poster1.png" 
+                shadow-intensity="1" auto-rotate>
+                <button slot="ar-button" class="ar-btn">LIHAT AR (LOWER DIE)</button>
+            </model-viewer>
+            <h3>Lower Die Finisher</h3>
+        </div>
+
+        <div class="card">
+            <model-viewer 
+                src="assets/v8_engine.glb" 
+                ar ar-modes="webxr scene-viewer quick-look" 
+                camera-controls poster="assets/poster2.png" 
+                shadow-intensity="1" auto-rotate>
+                <button slot="ar-button" class="ar-btn">LIHAT AR (V8 ENGINE)</button>
+            </model-viewer>
+            <h3>V8 Engine Internals</h3>
+        </div>
+    </div>
+
+</body>
+</html>

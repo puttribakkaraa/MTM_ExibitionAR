@@ -1,0 +1,10 @@
+body { font-family: sans-serif; margin: 0; text-align: center; background: #f4f4f4; }
+header { padding: 20px; background: #2c3e50; color: white; }
+.container { display: flex; flex-wrap: wrap; justify-content: center; padding: 20px; }
+.card { background: white; margin: 10px; padding: 15px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 300px; }
+model-viewer { width: 100%; height: 300px; background-color: #eee; border-radius: 8px; }
+.ar-btn {
+    background: #3498db; color: white; border: none;
+    padding: 10px 20px; border-radius: 20px; cursor: pointer;
+    position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
+}
