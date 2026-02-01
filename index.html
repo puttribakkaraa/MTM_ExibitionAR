@@ -28,12 +28,18 @@
 
         <div class="card">
             <model-viewer 
-                src="assets/v8_engine.glb" 
-                ar ar-modes="webxr scene-viewer quick-look" 
-                camera-controls poster="assets/poster2.png" 
-                shadow-intensity="1" auto-rotate>
-                <button slot="ar-button" class="ar-btn">LIHAT AR (V8 ENGINE)</button>
-            </model-viewer>
+  src="./assets/v8_engine_internals.glb" 
+  ar 
+  ar-modes="webxr scene-viewer quick-look" 
+  camera-controls 
+  touch-action="pan-y"
+  shadow-intensity="1">
+  
+  <button slot="ar-button" id="ar-button">
+    🚀 LIHAT DI RUANGAN ANDA
+  </button>
+
+</model-viewer>
             <h3>V8 Engine Internals</h3>
         </div>
     </div>
